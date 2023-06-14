@@ -60,7 +60,7 @@
             <td mat-cell *matCellDef="let element">
               <span *ngIf="element.status == 1" style="color:green">Güvende</span>
               <span *ngIf="element.status == 2" style="color:red">Güvende değil</span>
-              <span *ngIf="element.status == 0" style="color:blue">Gelmedi</span>
+              <span *ngIf="element.status == 3" style="color:blue">Gelmedi</span>
             </td>
           </ng-container>
           <ng-container matColumnDef="duzenleyen">
