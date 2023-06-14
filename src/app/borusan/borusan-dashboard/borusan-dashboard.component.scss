@@ -1,0 +1,112 @@
+
+.controlpanel{
+    height: 15vh;    
+}
+.content{
+    display: flex;
+    height: 83vh;
+    
+}
+.table{
+    height: 83vh;
+    width: 80vw;
+}
+.nameList{
+    overflow:scroll;
+    height: 83vh;
+
+}
+.mat-row:hover {
+    background-color: rgb(158, 232, 245);
+    cursor: pointer;
+
+}
+.mat-table th{
+    font-weight: bold;
+    font-size: larger;
+    text-align: center;
+    color: black;
+}
+:root{
+    --searcharea-boyut:80px;
+    --searcharea-uzunluk:70vw;
+}
+.searcharea{
+    border-radius:5px;
+    height:var(--searcharea-boyut);
+    padding:10px;
+    width:auto;
+    display:flex;
+    align-items: center;
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,.7);
+    background-color: white;
+    font-size: 1.2rem;
+    margin-bottom:15px;
+}
+.searcharea i{
+    color:black;
+    border:none;
+    border-radius: 25%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: calc(var(--searcharea-boyut) * .6);
+}
+.searcharea input{
+    border:none;
+    background: none;
+    outline: none;
+    color:black;
+    font-size: 120%;
+    padding:0;
+    width: 100%;
+    transition: .7s ease-in;
+}
+
+.searcharea:hover > a {
+    background: transparent;
+}
+
+.reloadDate{
+    width: 8vw;
+    min-width: 8vw;
+    min-height: 5vh;
+    background-color: rgb(223, 224, 220);
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 5px 5px 5px #939393;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.showDevices{
+    width: 8vw;
+    min-width: 8vw;
+    min-height: 5vh;
+    background-color:#009ef7;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 5px 5px 5px #939393;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+// .content{
+//     display: flex;
+//     height: 80vh;
+// }
+// .table{
+//     height: 80vh;
+//     width: 70vw;
+// }
+// .pie{
+//     height: 80vh;
+//     width: 30vw;
+// }

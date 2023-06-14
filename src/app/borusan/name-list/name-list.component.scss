@@ -1,0 +1,57 @@
+.nameList{
+    overflow:scroll;
+    height: 80vh;
+
+}
+.mat-row:hover {
+    background-color: rgb(158, 232, 245);
+    cursor: pointer;
+
+}
+.mat-table th{
+    font-weight: bold;
+    font-size: larger;
+    text-align: center;
+    color: black;
+}
+:root{
+    --searcharea-boyut:80px;
+    --searcharea-uzunluk:70vw;
+}
+.searcharea{
+    border-radius:5px;
+    height:var(--searcharea-boyut);
+    padding:10px;
+    width:auto;
+    display:flex;
+    align-items: center;
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,.7);
+    background-color: white;
+    font-size: 1.2rem;
+    margin-bottom:15px;
+}
+.searcharea i{
+    color:black;
+    border:none;
+    border-radius: 25%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: calc(var(--searcharea-boyut) * .6);
+}
+.searcharea input{
+    border:none;
+    background: none;
+    outline: none;
+    color:black;
+    font-size: 120%;
+    padding:0;
+    width: 100%;
+    transition: .7s ease-in;
+}
+
+.searcharea:hover > a {
+    background: transparent;
+}
+

@@ -1,0 +1,131 @@
+<div class="container-fluid">
+    <div class="controlpanel">
+        <div class="form-group p-3">
+            <label for="exampleSelect1">Select Location<span>/Lokasyon Seçiniz</span><span class="text-danger">*</span></label>
+            <select [(ngModel)]="_location" (change)="changeLokasyon(_location)" class="form-control form-select" id="location">
+                <option *ngFor="let item of locations">{{item}}</option>
+            </select>
+        </div>
+        
+        <div class="form-group" style="display:flex;justify-content:space-around; height: 5vh;">
+            <app-safepeople (myevent)="IsSafe($event)"></app-safepeople>
+            <div class="reloadDate" type="button">
+              <span>{{duzenlemeTarih | date : 'dd-MM-yyyy  hh:mm:ss'}}</span>
+            </div>
+            <!-- <div class="reloadDate" type="button">
+                <span>Gelmeyenler</span>
+            </div> -->
+            <div (click)="showDevices()"  class="showDevices" type="button" data-toggle="modal" data-target="#ShowDevices">
+              <span>Show Devices</span>
+          </div>
+            <app-notsafepeople (myevent)="IsSafe($event)"></app-notsafepeople>
+        </div>
+      
+    </div>
+
+    <div class="content">
+        <div class="col-md-12">
+          <app-name-list></app-name-list>
+            <!-- <div class="nameList">
+                <div class="searcharea">
+                  <input type="text" [(ngModel)]="searchEmp" class="form-control" placeholder="Sicil No"
+                  (keyup)="searchEmployeeFilter()">
+                  <a><i class="fas fa-search"></i></a>
+              
+                 </div>
+                 <mat-divider></mat-divider>
+                 <mat-dialog-content cdkDrag cdkDragRootElement="cdk-overlay-pane" cdkDragHandle>
+                    <div class="mat-elevation-z8">
+                      <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" style="width: 100%;">
+                        <ng-container matColumnDef="sicilNo">
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header>Sicil No</th>
+                          <td mat-cell *matCellDef="let element">{{element.sicilNo}}</td>
+                        </ng-container>
+                        <ng-container matColumnDef="adSoyad">
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header>Ad Soyad</th>
+                          <td mat-cell *matCellDef="let element">{{element.adSoyad}}</td>
+                        </ng-container>
+                        <ng-container matColumnDef="departman">
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header>Departman</th>
+                          <td mat-cell *matCellDef="let element">{{element.departman}}</td>
+                        </ng-container>
+                        <ng-container matColumnDef="firma">
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header>Firma</th>
+                          <td mat-cell *matCellDef="let element">
+                            {{element.firma}}
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="lokasyon">
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header>Lokasyon</th>
+                          <td mat-cell *matCellDef="let element">{{element.lokasyon}}</td>
+                        </ng-container>
+                        <ng-container matColumnDef="hareketZamani">
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header>Giris Saati</th>
+                          <td mat-cell *matCellDef="let element">{{element.hareketZamani | date : 'hh:mm' }}</td>
+                        </ng-container>
+                        <ng-container matColumnDef="terminalAd">
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header>Giris Terminali</th>
+                          <td mat-cell *matCellDef="let element">{{element.terminalAd}}</td>
+                        </ng-container>
+                        <ng-container matColumnDef="telefon">
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header>Telefon</th>
+                          <td mat-cell *matCellDef="let element">{{element.telefon}}</td>
+                        </ng-container>
+                        <ng-container matColumnDef="kanGrubu">
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header>Kan Grubu</th>
+                          <td mat-cell *matCellDef="let element">{{element.kanGrubu}}</td>
+                        </ng-container>
+                        <ng-container matColumnDef="acilDurumKisi">
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header>Acil Durum Kisi</th>
+                          <td mat-cell *matCellDef="let element">{{element.acilDurumKisi}}</td>
+                        </ng-container>
+                        <ng-container matColumnDef="acilDurumKisiTel">
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header>Acil Durum Kisi Tel</th>
+                          <td mat-cell *matCellDef="let element">{{element.acilDurumKisiTel}}</td>
+                        </ng-container>
+                        <ng-container matColumnDef="status">
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header>Statu</th>
+                          <td mat-cell *matCellDef="let element">
+                            <span *ngIf="element.status == 1" style="color:green">Güvende</span>
+                            <span *ngIf="element.status == 2" style="color:red">Güvende değil</span>
+                            <span *ngIf="element.status == 0" style="color:blue">Gelmedi</span>
+                          </td>
+                        </ng-container>
+                        <ng-container matColumnDef="duzenleyen">
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header>Düzenleyen</th>
+                          <td mat-cell *matCellDef="let element">{{element.duzenleyen}}</td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getRow(row)"></tr>
+                      </table>
+                      <mat-paginator   [pageSize]="10"  showFirstLastButtons aria-label="Select page">
+                      </mat-paginator>
+                    </div>
+                  </mat-dialog-content>
+                  <mat-divider></mat-divider>
+              </div> -->
+              
+        </div>
+    </div>
+
+    
+<div class="modal fade bd-example-modal-xl" id="ShowDevices" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Toplanma Alanları Terminalleri</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ng-container *ngFor="let item of deviceList">
+          <button *ngIf="item.ping != 100" type="button" class="btn btn-success m-2">{{item?.name}}</button>
+          <button *ngIf="item.ping == 100" type="button" class="btn btn-danger m-2">{{item?.name}}</button>
+      </ng-container>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+</div>
