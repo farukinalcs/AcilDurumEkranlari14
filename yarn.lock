@@ -285,6 +285,14 @@
   dependencies:
     "tslib" "^2.3.0"
 
+"@angular/google-maps@^16.1.1":
+  "integrity" "sha512-9Wwz6uqyT0/X5o9MTYvBkT1+JcseqGzeKbHw2hNhMq97FFUPN5eFkq+Ei+bNC0j17nDy1XaCMVSaZAWVLZPTiQ=="
+  "resolved" "https://registry.npmjs.org/@angular/google-maps/-/google-maps-16.1.1.tgz"
+  "version" "16.1.1"
+  dependencies:
+    "@types/google.maps" "^3.52.4"
+    "tslib" "^2.3.0"
+
 "@angular/material@^14.2.7":
   "integrity" "sha512-WXHh8pEStpgkXZJmYOg2cI8BSHkV82ET4XTJCNPdveumaCn1UYnaNzsXD13kw5z+zmy8CufhFEzdXTrv/yt7KQ=="
   "resolved" "https://registry.npmjs.org/@angular/material/-/material-14.2.7.tgz"
@@ -1778,6 +1786,11 @@
     "@types/express-serve-static-core" "^4.17.18"
     "@types/qs" "*"
     "@types/serve-static" "*"
+
+"@types/google.maps@^3.52.4":
+  "integrity" "sha512-IiDAYTONQEKCBssPtoM0XqWF8YIIk2leba4NOf9qVQ/d8l5gLuS3QT87TrX6/u8rMonQAXC9KEDmM4q7sT6MWg=="
+  "resolved" "https://registry.npmjs.org/@types/google.maps/-/google.maps-3.53.4.tgz"
+  "version" "3.53.4"
 
 "@types/http-proxy@^1.17.8":
   "integrity" "sha512-QsbSjA/fSk7xB+UXlCT3wHBy5ai9wOcNDWwZAtud+jXhwOM3l+EYZh8Lng4+/6n8uar0J7xILzqftJdJ/Wdfkw=="
