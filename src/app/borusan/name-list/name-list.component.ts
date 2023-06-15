@@ -80,11 +80,12 @@ export class NameListComponent implements OnInit {
      }
 
   ngOnInit(): void {
-    // setInterval(() => {
-    //   this.store.select(listen).subscribe((location:string) =>{
-    //     this.fillDataSource2(location)
-    //   })
-    //   }, 3000);
+    setInterval(() => {
+      // this.store.select(listen).subscribe((location:string) =>{
+      //   this.fillDataSource2(location)
+      // })
+      this.getData()
+      }, 3000);
     // this.getData();
       this.store.select(listen).subscribe((location:string) =>{
         this.fillDataSource2(location)
@@ -98,6 +99,8 @@ export class NameListComponent implements OnInit {
       this.dataList = result.sonuc;
       this.borusan.duzenlemeTarih = result.tarih;
       this.dataSource = new MatTableDataSource(this.dataList)
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
       console.log("getData",this.dataSource);
       this.ref.detectChanges();
     }))
@@ -112,8 +115,7 @@ export class NameListComponent implements OnInit {
         this.dataList = result?.sonuc;
         this.merkez = this.dataList.filter((x:Result)=> x.lokasyon == location && x.status != 5)
         this.dataSource = new MatTableDataSource(this.merkez)
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
+      
         this.ref.detectChanges();
         console.log("Merkez / İstanbul",this.dataSource);
       }))
@@ -124,8 +126,8 @@ export class NameListComponent implements OnInit {
         this.dataList = result?.sonuc;
         this.gemlik = this.dataList.filter((x:Result)=> x.lokasyon == location && x.status != 5)
         this.dataSource = new MatTableDataSource(this.gemlik)
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
+        // this.dataSource.paginator = this.paginator;
+        // this.dataSource.sort = this.sort;
         this.ref.detectChanges();
         console.log("Gemlik / Bursa",this.dataSource)
       }))
@@ -136,8 +138,8 @@ export class NameListComponent implements OnInit {
         this.dataList = result?.sonuc;
         this.halkali = this.dataList.filter((x:Result)=> x.lokasyon == location && x.status != 5)
         this.dataSource = new MatTableDataSource(this.halkali)
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
+        // this.dataSource.paginator = this.paginator;
+        // this.dataSource.sort = this.sort;
         this.ref.detectChanges();
         console.log("Halkalı / İstanbul",this.dataSource)
       }))
@@ -149,23 +151,23 @@ export class NameListComponent implements OnInit {
         this.dataList = result?.sonuc;
         this.bursa = this.dataList.filter((x:Result)=> x.lokasyon == location && x.status != 5)
         this.dataSource = new MatTableDataSource(this.bursa)
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
+        // this.dataSource.paginator = this.paginator;
+        // this.dataSource.sort = this.sort;
         this.ref.detectChanges();
         console.log("Bursa",this.dataSource)
       }))
     }
-    else{
-      this.unsubscribe.push(this.borusan.getData(0)
-      .subscribe((result : Move) => {
-        this.dataList = result?.sonuc;
-        this.dataSource = new MatTableDataSource(this.dataList)
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
-        console.log("ELSEE",this.dataSource)
-        this.ref.detectChanges();
-      }))
-    }
+    // else{
+    //   this.unsubscribe.push(this.borusan.getData(0)
+    //   .subscribe((result : Move) => {
+    //     this.dataList = result?.sonuc;
+    //     this.dataSource = new MatTableDataSource(this.dataList)
+    //     this.dataSource.paginator = this.paginator;
+    //     this.dataSource.sort = this.sort;
+    //     console.log("ELSEE",this.dataSource)
+    //     this.ref.detectChanges();
+    //   }))
+    // }
   }
 
   fillDataSource(location:string){
