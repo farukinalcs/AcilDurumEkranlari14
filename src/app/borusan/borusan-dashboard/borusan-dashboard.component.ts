@@ -53,6 +53,7 @@ export class BorusanDashboardComponent implements OnInit {
 
   changeLokasyon(id:string){
     this.store.dispatch(changeLocation({id : id}))
+    console.log("change Lokasyon",id)
   }
 
  

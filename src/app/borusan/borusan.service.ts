@@ -13,12 +13,12 @@ const API2 = `${environment.apiGC}`;
 
 export class BorusanService {
   
-  locationService:string="0"
+  // locationService:string="0"
 
   duzenlemeTarih:string;
   constructor(private http:HttpClient) { }
 
-  getData() : Observable<any> {
+  getData(status:number) : Observable<any> {
     let headers = new HttpHeaders({
       'Content-Type': 'application/json', 
       'Access-Control-Allow-Origin': '10.28.64.4:1323',
@@ -30,7 +30,7 @@ export class BorusanService {
     let data = {
         "userName": "Meyer",
         "password": "c2xxd2VvZjQ1NjgzMTIyNTc5MTIzcw",
-        "Status":0
+        "status":status
     }
 
     let options = {headers : headers}
@@ -51,7 +51,7 @@ export class BorusanService {
     let data = {
         "userName": "Meyer",
         "password": "c2xxd2VvZjQ1NjgzMTIyNTc5MTIzcw",
-        "Status":0
+        "status":0
     }
 
     let options = {headers : headers}

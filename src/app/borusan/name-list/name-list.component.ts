@@ -85,7 +85,7 @@ export class NameListComponent implements OnInit {
     //     this.fillDataSource2(location)
     //   })
     //   }, 3000);
-    this.getData();
+    // this.getData();
       this.store.select(listen).subscribe((location:string) =>{
         this.fillDataSource2(location)
       })
@@ -93,10 +93,10 @@ export class NameListComponent implements OnInit {
   }
 
   getData(){
-    this.unsubscribe.push(this.borusan.getData()
+    this.unsubscribe.push(this.borusan.getData(0)
     .subscribe((result : Move) => {
       this.dataList = result.sonuc;
-      this.borusan.duzenlemeTarih =result.tarih;
+      this.borusan.duzenlemeTarih = result.tarih;
       this.dataSource = new MatTableDataSource(this.dataList)
       console.log("getData",this.dataSource);
       this.ref.detectChanges();
@@ -107,19 +107,19 @@ export class NameListComponent implements OnInit {
 
     if(location == "Merkez / İstanbul")
     {
-      this.unsubscribe.push(this.borusan.getData()
+      this.unsubscribe.push(this.borusan.getData(0)
       .subscribe((result : Move) => {
         this.dataList = result?.sonuc;
-        this.merkez = this.dataList.filter((x:Result)=> x.lokasyon == location && x.status == 1)
+        this.merkez = this.dataList.filter((x:Result)=> x.lokasyon == location && x.status != 5)
         this.dataSource = new MatTableDataSource(this.merkez)
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         this.ref.detectChanges();
-        console.log("Merkez",this.dataSource);
+        console.log("Merkez / İstanbul",this.dataSource);
       }))
       
     }else if(location == "Gemlik / Bursa"){
-      this.unsubscribe.push(this.borusan.getData()
+      this.unsubscribe.push(this.borusan.getData(0)
       .subscribe((result : Move) => {
         this.dataList = result?.sonuc;
         this.gemlik = this.dataList.filter((x:Result)=> x.lokasyon == location && x.status != 5)
@@ -131,7 +131,7 @@ export class NameListComponent implements OnInit {
       }))
     }
     else if(location == "Halkalı / İstanbul"){
-      this.unsubscribe.push(this.borusan.getData()
+      this.unsubscribe.push(this.borusan.getData(0)
       .subscribe((result : Move) => {
         this.dataList = result?.sonuc;
         this.halkali = this.dataList.filter((x:Result)=> x.lokasyon == location && x.status != 5)
@@ -144,7 +144,7 @@ export class NameListComponent implements OnInit {
     }
     else if (location == "Bursa")
     {
-      this.unsubscribe.push(this.borusan.getData()
+      this.unsubscribe.push(this.borusan.getData(0)
       .subscribe((result : Move) => {
         this.dataList = result?.sonuc;
         this.bursa = this.dataList.filter((x:Result)=> x.lokasyon == location && x.status != 5)
@@ -156,7 +156,7 @@ export class NameListComponent implements OnInit {
       }))
     }
     else{
-      this.unsubscribe.push(this.borusan.getData()
+      this.unsubscribe.push(this.borusan.getData(0)
       .subscribe((result : Move) => {
         this.dataList = result?.sonuc;
         this.dataSource = new MatTableDataSource(this.dataList)
