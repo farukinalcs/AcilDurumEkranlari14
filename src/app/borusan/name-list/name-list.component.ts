@@ -93,8 +93,21 @@ export class NameListComponent implements OnInit {
 
   }
 
+  getData2(){
+    this.unsubscribe.push(this.borusan.getData()
+    .subscribe((result : Move) => {
+      this.dataList = result.sonuc;
+      this.borusan.duzenlemeTarih = result.tarih;
+      this.dataSource = new MatTableDataSource(this.dataList)
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+      console.log("getData",this.dataSource);
+      this.ref.detectChanges();
+    }))
+  }
+
   getData(){
-    this.unsubscribe.push(this.borusan.getData(0)
+    this.unsubscribe.push(this.borusan.getData()
     .subscribe((result : Move) => {
       this.dataList = result.sonuc;
       this.borusan.duzenlemeTarih = result.tarih;
@@ -110,7 +123,7 @@ export class NameListComponent implements OnInit {
 
     if(location == "Merkez / İstanbul")
     {
-      this.unsubscribe.push(this.borusan.getData(0)
+      this.unsubscribe.push(this.borusan.getData()
       .subscribe((result : Move) => {
         this.dataList = result?.sonuc;
         this.merkez = this.dataList.filter((x:Result)=> x.lokasyon == location && x.status != 5)
@@ -121,7 +134,7 @@ export class NameListComponent implements OnInit {
       }))
       
     }else if(location == "Gemlik / Bursa"){
-      this.unsubscribe.push(this.borusan.getData(0)
+      this.unsubscribe.push(this.borusan.getData()
       .subscribe((result : Move) => {
         this.dataList = result?.sonuc;
         this.gemlik = this.dataList.filter((x:Result)=> x.lokasyon == location && x.status != 5)
@@ -133,7 +146,7 @@ export class NameListComponent implements OnInit {
       }))
     }
     else if(location == "Halkalı / İstanbul"){
-      this.unsubscribe.push(this.borusan.getData(0)
+      this.unsubscribe.push(this.borusan.getData()
       .subscribe((result : Move) => {
         this.dataList = result?.sonuc;
         this.halkali = this.dataList.filter((x:Result)=> x.lokasyon == location && x.status != 5)
@@ -146,7 +159,7 @@ export class NameListComponent implements OnInit {
     }
     else if (location == "Bursa")
     {
-      this.unsubscribe.push(this.borusan.getData(0)
+      this.unsubscribe.push(this.borusan.getData()
       .subscribe((result : Move) => {
         this.dataList = result?.sonuc;
         this.bursa = this.dataList.filter((x:Result)=> x.lokasyon == location && x.status != 5)

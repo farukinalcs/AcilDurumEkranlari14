@@ -18,7 +18,7 @@ export class BorusanService {
   duzenlemeTarih:string;
   constructor(private http:HttpClient) { }
 
-  getData(status:number) : Observable<any> {
+  getData() : Observable<any> {
     let headers = new HttpHeaders({
       'Content-Type': 'application/json', 
       'Access-Control-Allow-Origin': '10.28.64.4:1323',
@@ -30,7 +30,8 @@ export class BorusanService {
     let data = {
         "userName": "Meyer",
         "password": "c2xxd2VvZjQ1NjgzMTIyNTc5MTIzcw",
-        "status":status
+        "status":"0",
+        "LokasyonStatus":"1"
     }
 
     let options = {headers : headers}
