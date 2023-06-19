@@ -19,11 +19,12 @@ declare var $: any;
 export class BorusanDashboardComponent implements OnInit {
   _location:string = "";
   locations : string[]= [
-    "Merkez / İstanbul",
+    "Hepsi",
     "Gemlik / Bursa",
-    "Halkalı / İstanbul",
     "Bursa",
-    "Hepsi"
+    "Halkalı / İstanbul",
+    "Merkez / İstanbul",
+    "Yok"
   ]
 
   deviceList:any[] = [];
@@ -38,22 +39,37 @@ export class BorusanDashboardComponent implements OnInit {
 
   constructor(
     private auth:AuthService,
-    private borusan:BorusanService,
+    public borusan:BorusanService,
     private ref: ChangeDetectorRef,
     private store: Store) { }
 
   ngOnInit(): void {
     this.getTerminal();
-    setInterval(() => {
-      this.getTerminal();
-      }, 3000);
-    
+    // setInterval(() => {
+    //   this.getTerminal();
+    //   }, 3000);
   }
 
 
   changeLokasyon(id:string){
-    this.store.dispatch(changeLocation({id : id}))
+    // this.store.dispatch(changeLocation({id : id}))
     console.log("change Lokasyon",id)
+    if(id == "Hepsi")
+    {this.borusan.locationSubject.next(1)
+      this.ref.detectChanges();
+    }else if(id == "Gemlik / Bursa")
+    {this.borusan.locationSubject.next(2)
+      this.ref.detectChanges();
+    }else if(id == "Bursa")
+    {this.borusan.locationSubject.next(3)
+      this.ref.detectChanges();
+    }else if(id == "Halkalı / İstanbul")
+    {this.borusan.locationSubject.next(4)
+      this.ref.detectChanges();
+    }else if(id == "Merkez / İstanbul")
+    {this.borusan.locationSubject.next(5)
+      this.ref.detectChanges();
+    }else this.borusan.locationSubject.next(6)
   }
 
  
@@ -67,6 +83,15 @@ export class BorusanDashboardComponent implements OnInit {
     }))
   }
 
+   // getData(){
+  //   this.unsubscribe.push(this.borusan.getData()
+  //   .subscribe((result : Move) => {
+  //     this.dataList = result.sonuc;
+  //     this.duzenlemeTarih = result.tarih;
+  //     console.log("RESULT Move",result)
+  //     this.ref.detectChanges();
+  //   }))
+  // }
   // getData(){
   //   this.unsubscribe.push(this.borusan.getData()
   //   .subscribe((result : Move) => {
@@ -101,6 +126,10 @@ export class BorusanDashboardComponent implements OnInit {
     $('#ShowDevices').modal('show');
     console.log("SHOW")
   }
+  notLocation(){
+    this.borusan.statusSubject.next(3)
+  }
+
 
  
 

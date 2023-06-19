@@ -46,6 +46,8 @@ export class NameListComponent implements OnInit {
   dataList:Result[] = [];
 
 
+  statikocu:number=0;
+
   locationSelect$ = this.store.select(listen);
 
   searchEmp:string = "";
@@ -81,29 +83,48 @@ export class NameListComponent implements OnInit {
 
   ngOnInit(): void {
     setInterval(() => {
+      this.borusan.locationSubject.subscribe(data =>{
+        this.getData3(data)
+        this.ref.detectChanges();
+      })
+      }, 3000);
+      this.borusan.statusSubject.subscribe(data => {
+        this.statikocu = data;
+        console.log("statusSubject",this.statikocu);
+
+      })
       // this.store.select(listen).subscribe((location:string) =>{
       //   this.fillDataSource2(location)
       // })
-      this.getData()
-      }, 3000);
-    // this.getData();
-      this.store.select(listen).subscribe((location:string) =>{
-        this.fillDataSource2(location)
-      })
-
+    
   }
 
-  getData2(){
-    this.unsubscribe.push(this.borusan.getData()
+  // getData2(id:number){
+  //   this.unsubscribe.push(this.borusan.getData2(id)
+  //   .subscribe((result : Move) => {
+  //     this.dataList = result.sonuc;
+  //     this.borusan.duzenlemeTarih = result.tarih;
+  //     this.dataSource = new MatTableDataSource(this.dataList)
+  //     this.dataSource.paginator = this.paginator;
+  //     this.dataSource.sort = this.sort;
+  //     console.log("getData2",this.dataSource);
+  //     this.ref.detectChanges();
+  //   }))
+  // }
+  getData3(id:number){
+    this.unsubscribe.push(this.borusan.getData2(id)
     .subscribe((result : Move) => {
       this.dataList = result.sonuc;
       this.borusan.duzenlemeTarih = result.tarih;
+      this.merkez = this.dataList.filter((x:Result)=> x.status == this.statikocu)
       this.dataSource = new MatTableDataSource(this.dataList)
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-      console.log("getData",this.dataSource);
       this.ref.detectChanges();
     }))
+
+    
+   
   }
 
   getData(){

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { BorusanService } from '../borusan.service';
 
 @Component({
   selector: 'app-notsafepeople',
@@ -8,7 +9,8 @@ import { Store } from '@ngrx/store';
 })
 export class NotsafepeopleComponent implements OnInit {
 
-  constructor(private store: Store) { }
+  constructor(private store: Store,
+    private borusan : BorusanService) { }
   @Output() myevent: EventEmitter<any> = new EventEmitter();
   ngOnInit(): void {
     
@@ -17,5 +19,6 @@ export class NotsafepeopleComponent implements OnInit {
   notSafe(){
     this.store.dispatch({type:"[State] getState"})
     this.myevent.emit("not")
+    this.borusan.statusSubject.next(2)
   }
 }
