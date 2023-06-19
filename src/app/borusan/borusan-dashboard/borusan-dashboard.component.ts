@@ -17,7 +17,9 @@ declare var $: any;
 
 
 export class BorusanDashboardComponent implements OnInit {
+
   _location:string = "";
+
   locations : string[]= [
     "Hepsi",
     "Gemlik / Bursa",
@@ -53,7 +55,6 @@ export class BorusanDashboardComponent implements OnInit {
 
   changeLokasyon(id:string){
     // this.store.dispatch(changeLocation({id : id}))
-    console.log("change Lokasyon",id)
     if(id == "Hepsi")
     {this.borusan.locationSubject.next(1)
       this.ref.detectChanges();

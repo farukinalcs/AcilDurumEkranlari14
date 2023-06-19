@@ -9,9 +9,12 @@ import { BorusanService } from '../borusan.service';
 })
 export class NotsafepeopleComponent implements OnInit {
 
-  constructor(private store: Store,
+  constructor(
+    private store: Store,
     private borusan : BorusanService) { }
+
   @Output() myevent: EventEmitter<any> = new EventEmitter();
+  
   ngOnInit(): void {
     
   }

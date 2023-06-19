@@ -12,7 +12,9 @@ export class SafepeopleComponent implements OnInit {
   constructor(
     private store : Store,
     private borusan : BorusanService) { }
+
   @Output() myevent: EventEmitter<any> = new EventEmitter();
+  
   ngOnInit(): void {
 
   }
