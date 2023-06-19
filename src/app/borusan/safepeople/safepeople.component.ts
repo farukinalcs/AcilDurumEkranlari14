@@ -11,7 +11,7 @@ export class SafepeopleComponent implements OnInit {
 
   constructor(
     private store : Store,
-    private borusan : BorusanService) { }
+    public borusan : BorusanService) { }
 
   @Output() myevent: EventEmitter<any> = new EventEmitter();
   

@@ -17,9 +17,17 @@ export class BorusanService {
   public statusSubject = new Subject<number>();
 
   duzenlemeTarih:string;
+
+  selectLocation:number=1;
+
+  selectStatus:number=0;
+
+  safePeopleCount:number;
+  notSafePeopleCount:number;
+
   constructor(private http:HttpClient) { }
 
-  getData() : Observable<Move> {
+  getData2(location:number,status:number) : Observable<any> {
     let headers = new HttpHeaders({
       'Content-Type': 'application/json', 
       'Access-Control-Allow-Origin': '10.28.64.4:1323',
@@ -31,29 +39,7 @@ export class BorusanService {
     let data = {
         "userName": "Meyer",
         "password": "c2xxd2VvZjQ1NjgzMTIyNTc5MTIzcw",
-        "status":0,
-        "LokasyonStatus":1
-    }
-
-    let options = {headers : headers}
-    
-  return this.http.post<Move>(API,data,options);
-  //  return this.http.post(API,{'headers':headers,"body":body})
-  }
-
-  getData2(location:number) : Observable<any> {
-    let headers = new HttpHeaders({
-      'Content-Type': 'application/json', 
-      'Access-Control-Allow-Origin': '10.28.64.4:1323',
-      'Access-Control-Allow-Credentials': 'true',
-      'Access-Control-Allow-Methods': 'POST',
-      'Access-Control-Allow-Headers': 'Content-Type, Authorization'
-    });
-
-    let data = {
-        "userName": "Meyer",
-        "password": "c2xxd2VvZjQ1NjgzMTIyNTc5MTIzcw",
-        "status":0,
+        "status":status,
         "LokasyonStatus":location
     }
 

@@ -54,7 +54,6 @@ export class BorusanDashboardComponent implements OnInit {
 
 
   changeLokasyon(id:string){
-    // this.store.dispatch(changeLocation({id : id}))
     if(id == "Hepsi")
     {this.borusan.locationSubject.next(1)
       this.ref.detectChanges();

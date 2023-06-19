@@ -15,7 +15,7 @@
           </ng-container>
           <ng-container matColumnDef="adSoyad">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Ad Soyad</th>
-            <td mat-cell *matCellDef="let element">{{element.adSoyad}}</td>
+            <td mat-cell *matCellDef="let element"><b>{{element.adSoyad}}</b></td>
           </ng-container>
           <ng-container matColumnDef="departman">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Departman</th>
@@ -29,7 +29,7 @@
           </ng-container>
           <ng-container matColumnDef="lokasyon">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Lokasyon</th>
-            <td mat-cell *matCellDef="let element">{{element.lokasyon}}</td>
+            <td mat-cell *matCellDef="let element"><b>{{element.lokasyon}}</b></td>
             <!-- <td mat-cell *matCellDef="let element">{{locationSelect$ | async}}</td> -->
           </ng-container>
           <ng-container matColumnDef="hareketZamani">
@@ -59,9 +59,9 @@
           <ng-container matColumnDef="status">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Statu</th>
             <td mat-cell *matCellDef="let element">
-              <span *ngIf="element.status == 1" style="color:green">Güvende</span>
-              <span *ngIf="element.status == 2" style="color:red">Güvende değil</span>
-              <span *ngIf="element.status == 3" style="color:blue">Lokasyon Dışı</span>
+              <span *ngIf="element.status == 1" style="color:green"><b>Güvende</b></span>
+              <span *ngIf="element.status == 2" style="color:red"><b>Güvende Değil</b></span>
+              <span *ngIf="element.status == 3" style="color:blue"><b>Lokasyon Dışı</b></span>
             </td>
           </ng-container>
           <ng-container matColumnDef="duzenleyen">
