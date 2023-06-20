@@ -27,7 +27,7 @@ export class BorusanService {
 
   constructor(private http:HttpClient) { }
 
-  getData2(location:number,status:number) : Observable<any> {
+  getMove(location:number,status:number) : Observable<any> {
     let headers = new HttpHeaders({
       'Content-Type': 'application/json', 
       'Access-Control-Allow-Origin': '10.28.64.4:1323',

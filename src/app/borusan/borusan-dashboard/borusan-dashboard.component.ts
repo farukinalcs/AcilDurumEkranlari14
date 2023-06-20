@@ -18,6 +18,8 @@ declare var $: any;
 
 export class BorusanDashboardComponent implements OnInit {
 
+  onDevices:number;
+  offDevices:number;
   _location:string = "";
 
   locations : string[]= [
@@ -30,7 +32,7 @@ export class BorusanDashboardComponent implements OnInit {
   ]
 
   deviceList:any[] = [];
-  isSafe:number = 5;
+
   duzenlemeTarih:string;
 
   dataSource!: MatTableDataSource<any>;
@@ -43,13 +45,13 @@ export class BorusanDashboardComponent implements OnInit {
     private auth:AuthService,
     public borusan:BorusanService,
     private ref: ChangeDetectorRef,
-    private store: Store) { }
+    ) { }
 
   ngOnInit(): void {
     this.getTerminal();
-    // setInterval(() => {
-    //   this.getTerminal();
-    //   }, 3000);
+    setInterval(() => {
+      this.getTerminal();
+      }, 10000);
   }
 
 
@@ -78,53 +80,21 @@ export class BorusanDashboardComponent implements OnInit {
     .subscribe((result : any) => {
       this.deviceList = result.sonuc;
       this.duzenlemeTarih = result.tarih;
-      console.log("RESULT DEVİCES",result)
+      this.onDevices = this.deviceList.filter((x:any)=>x.state == 1).length;
+      this.offDevices = this.deviceList.filter((x:any)=>x.state == 0).length;
       this.ref.detectChanges();
     }))
   }
-
-   // getData(){
-  //   this.unsubscribe.push(this.borusan.getData()
-  //   .subscribe((result : Move) => {
-  //     this.dataList = result.sonuc;
-  //     this.duzenlemeTarih = result.tarih;
-  //     console.log("RESULT Move",result)
-  //     this.ref.detectChanges();
-  //   }))
-  // }
-  // getData(){
-  //   this.unsubscribe.push(this.borusan.getData()
-  //   .subscribe((result : Move) => {
-  //     this.dataList = result.sonuc;
-  //     this.duzenlemeTarih = result.tarih;
-  //     console.log("RESULT Move",result)
-  //     this.ref.detectChanges();
-  //   }))
-  // }
   
   logout() {
     this.auth.logout();
     document.location.reload();
   }
 
-  IsSafe(state:string){
-    if(state == "not")
-    {  
-      this.isSafe = 1;
-      console.log("this.isSafe",this.isSafe)
-      this.ref.detectChanges();
 
-    }else if(state == "safe"){
-      this.isSafe = 2;
-      console.log("this.isSafe",this.isSafe)
-      this.ref.detectChanges();
-    }
-  
-  }
 
   showDevices(){
     $('#ShowDevices').modal('show');
-    console.log("SHOW")
   }
   notLocation(){
     this.borusan.statusSubject.next(3)

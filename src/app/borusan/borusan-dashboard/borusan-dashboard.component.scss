@@ -68,11 +68,40 @@
     background: transparent;
 }
 
-.reloadDate{
+// .reloadDate{
+//     width: 8vw;
+//     min-width: 8vw;
+//     min-height: 5vh;
+//     background-color: rgb(223, 224, 220);
+//     color: black;
+//     text-align: center;
+//     font-weight: bold;
+//     box-shadow: 5px 5px 5px #939393;
+//     border-radius: 5px;
+//     display: flex;
+//     justify-content: space-around;
+//     align-items: center;
+// }
+// .showDevices{
+//     width: 8vw;
+//     min-width: 8vw;
+//     min-height: 5vh;
+//     background-color:#009ef7;
+//     font-weight: bold;
+//     color: black;
+//     text-align: center;
+//     font-weight: bold;
+//     box-shadow: 5px 5px 5px #939393;
+//     border-radius: 5px;
+//     display: flex;
+//     justify-content: space-around;
+//     align-items: center;
+// }
+.dashboard-items{
     width: 8vw;
     min-width: 8vw;
     min-height: 5vh;
-    background-color: rgb(223, 224, 220);
+    font-weight: bold;
     color: black;
     text-align: center;
     font-weight: bold;
@@ -82,20 +111,10 @@
     justify-content: space-around;
     align-items: center;
 }
-.showDevices{
-    width: 8vw;
-    min-width: 8vw;
-    min-height: 5vh;
-    background-color:#009ef7;
-    font-weight: bold;
-    color: black;
-    text-align: center;
-    font-weight: bold;
-    box-shadow: 5px 5px 5px #939393;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+
+.dashboard-items:active{
+    transform: scale(0.98);
+    box-shadow: 3px 2px 22px 1px #009ef7;
 }
 
 // .content{

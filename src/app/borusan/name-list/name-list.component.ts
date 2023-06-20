@@ -46,7 +46,7 @@ export class NameListComponent implements OnInit {
   dataList:Result[] = [];
 
 
-  statikocu:number=0;
+  statikocu:string="40.76841734815389";
 
   locationSelect$ = this.store.select(listen);
 
@@ -61,7 +61,7 @@ export class NameListComponent implements OnInit {
      tarih:""
   }
 
-  nameList: any[];
+  nameList: any;
   
   // employeeState$ = this.store.select("employeeState");
 
@@ -82,31 +82,31 @@ export class NameListComponent implements OnInit {
      }
 
   ngOnInit(): void {
-    this.getData3(1,0);
+    this.getMove(1,0);
     setInterval(() => {
-      this.getData3(this.borusan.selectLocation,this.borusan.selectStatus);
+      this.getMove(this.borusan.selectLocation,this.borusan.selectStatus);
     }, 3000);
      
-    this.borusan.locationSubject.subscribe(data =>{
+    this.borusan.locationSubject.subscribe(data => {
         this.borusan.selectLocation = data;
+        this.borusan.selectStatus = 0;
         this.ref.detectChanges();
     })
 
     this.borusan.statusSubject.subscribe(data => {
       this.borusan.selectStatus = data;
-      this.getData3(this.borusan.selectLocation,this.borusan.selectStatus);
+      this.getMove(this.borusan.selectLocation,this.borusan.selectStatus);
 
     })
     
   }
 
 
-  getData3(location:number,status:number){
-    this.unsubscribe.push(this.borusan.getData2(location,status)
+  getMove(location:number,status:number){
+    this.unsubscribe.push(this.borusan.getMove(location,status)
     .subscribe((result : Move) => {
       this.dataList = result.sonuc;
       this.borusan.duzenlemeTarih = result.tarih;
-      this.merkez = this.dataList.filter((x:Result)=> x.status == this.statikocu)
       this.dataSource = new MatTableDataSource(this.dataList)
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -117,162 +117,35 @@ export class NameListComponent implements OnInit {
       }else if(status == 2){
         this.borusan.notSafePeopleCount = this.dataList.length;
       }
-      console.log("DATA GELİYORRRRRRRRRRRRRRRRRRRRRRR")
     }))
-
     
-   
   }
-
-  // getData(){
-  //   this.unsubscribe.push(this.borusan.getData()
-  //   .subscribe((result : Move) => {
-  //     this.dataList = result.sonuc;
-  //     this.borusan.duzenlemeTarih = result.tarih;
-  //     this.dataSource = new MatTableDataSource(this.dataList)
-  //     this.dataSource.paginator = this.paginator;
-  //     this.dataSource.sort = this.sort;
-  //     console.log("getData",this.dataSource);
-  //     this.ref.detectChanges();
-  //   }))
-  // }
-
-  //  fillDataSource2(location:string){
-
-  //   if(location == "Merkez / İstanbul")
-  //   {
-  //     this.unsubscribe.push(this.borusan.getData()
-  //     .subscribe((result : Move) => {
-  //       this.dataList = result?.sonuc;
-  //       this.merkez = this.dataList.filter((x:Result)=> x.lokasyon == location && x.status != 5)
-  //       this.dataSource = new MatTableDataSource(this.merkez)
-      
-  //       this.ref.detectChanges();
-  //       console.log("Merkez / İstanbul",this.dataSource);
-  //     }))
-      
-  //   }else if(location == "Gemlik / Bursa"){
-  //     this.unsubscribe.push(this.borusan.getData()
-  //     .subscribe((result : Move) => {
-  //       this.dataList = result?.sonuc;
-  //       this.gemlik = this.dataList.filter((x:Result)=> x.lokasyon == location && x.status != 5)
-  //       this.dataSource = new MatTableDataSource(this.gemlik)
-  //       // this.dataSource.paginator = this.paginator;
-  //       // this.dataSource.sort = this.sort;
-  //       this.ref.detectChanges();
-  //       console.log("Gemlik / Bursa",this.dataSource)
-  //     }))
-  //   }
-  //   else if(location == "Halkalı / İstanbul"){
-  //     this.unsubscribe.push(this.borusan.getData()
-  //     .subscribe((result : Move) => {
-  //       this.dataList = result?.sonuc;
-  //       this.halkali = this.dataList.filter((x:Result)=> x.lokasyon == location && x.status != 5)
-  //       this.dataSource = new MatTableDataSource(this.halkali)
-  //       // this.dataSource.paginator = this.paginator;
-  //       // this.dataSource.sort = this.sort;
-  //       this.ref.detectChanges();
-  //       console.log("Halkalı / İstanbul",this.dataSource)
-  //     }))
-  //   }
-  //   else if (location == "Bursa")
-  //   {
-  //     this.unsubscribe.push(this.borusan.getData()
-  //     .subscribe((result : Move) => {
-  //       this.dataList = result?.sonuc;
-  //       this.bursa = this.dataList.filter((x:Result)=> x.lokasyon == location && x.status != 5)
-  //       this.dataSource = new MatTableDataSource(this.bursa)
-  //       // this.dataSource.paginator = this.paginator;
-  //       // this.dataSource.sort = this.sort;
-  //       this.ref.detectChanges();
-  //       console.log("Bursa",this.dataSource)
-  //     }))
-  //   }
-  //   // else{
-  //   //   this.unsubscribe.push(this.borusan.getData(0)
-  //   //   .subscribe((result : Move) => {
-  //   //     this.dataList = result?.sonuc;
-  //   //     this.dataSource = new MatTableDataSource(this.dataList)
-  //   //     this.dataSource.paginator = this.paginator;
-  //   //     this.dataSource.sort = this.sort;
-  //   //     console.log("ELSEE",this.dataSource)
-  //   //     this.ref.detectChanges();
-  //   //   }))
-  //   // }
-  // }
-
-  // fillDataSource(location:string){
-  //   if(location == "Merkez / İstanbul")
-  //   {
-  //     this.merkez = this.dataList.filter((x:Result)=> x.lokasyon == location && x.status != 5)
-  //     this.dataSource = new MatTableDataSource(this.merkez);
-  //     this.dataSource.paginator = this.paginator;
-  //     this.dataSource.sort = this.sort;
-  //     console.log("Merkez / İstanbul",this.dataSource)
-  //   }else if(location == "Gemlik / Bursa"){
-  //     this.gemlik = this.dataList.filter((x:Result)=> x.lokasyon == location  && x.status != 5)
-  //     this.dataSource = new MatTableDataSource(this.gemlik);
-  //     this.dataSource.paginator = this.paginator;
-  //     this.dataSource.sort = this.sort;
-  //     console.log("Gemlik / Bursa",this.dataSource)
-  //   }
-  //   else if(location == "Halkalı / İstanbul"){
-  //     this.halkali = this.dataList.filter((x:Result)=> x.lokasyon == location  && x.status != 5)
-  //     this.dataSource = new MatTableDataSource(this.halkali);
-  //     this.dataSource.paginator = this.paginator;
-  //     this.dataSource.sort = this.sort;
-  //     console.log("Halkalı / İstanbul",this.dataSource)
-  //   }
-  //   else if (location == "Bursa")
-  //   {
-  //     this.bursa = this.dataList.filter((x:Result)=> x.lokasyon == location  && x.status != 5)
-  //     this.dataSource = new MatTableDataSource(this.bursa);
-  //     this.dataSource.paginator = this.paginator;
-  //     this.dataSource.sort = this.sort;
-  //     console.log("Bursa",this.dataSource)
-  //   }
-  //   else{
-  //     this.dataSource = new MatTableDataSource(this.dataList)
-  //     this.dataSource.paginator = this.paginator;
-  //     this.dataSource.sort = this.sort;
-  //   }
-  // }
 
   searchEmployeeFilter() {
     this.dataSource.filter = this.searchEmp.trim().toLowerCase().toUpperCase();
   }
 
-  getKoordinat(){
+  getKoordinat(row:Result)
+  {  console.log("element",row)
     $('#koordinat').modal('show');
   }
 
-  getRow(data:any,row:any){
-    console.log("___SATIR İNFO",row);
-    console.log("___SATIR data",data);
-    if(row.lokasyon == "Merkez / İstanbul"){
-      this.exportTable(this.merkez,row.lokasyon);
-    }else if(row.lokasyon == "Gemlik / Bursa"){
-      this.exportTable(this.gemlik,row.lokasyon);
-    }else if(row.lokasyon == "Halkalı / İstanbul"){
-      this.exportTable(this.halkali,row.lokasyon);
-    }else if(row.lokasyon == "Bursa"){
-      this.exportTable(this.bursa,row.lokasyon);
-    }else{
-      console.log("row.lokasyon",row.lokasyon)
-    }
-    
-  
-  }
-  
-  exportTable(data: any, alanadi: string) {
-    const parseData = JSON.parse(data)
-    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(parseData);
+  exportExcel():void{
+    let element = document.getElementById('excel-table')
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
-    // console.log("WS",ws);
     XLSX.utils.book_append_sheet(wb, ws, 'All Data Export');
-
-    XLSX.writeFile(wb, alanadi + '.xlsx');
+    XLSX.writeFile(wb, "BORUSAN ACİL DURUM TOPLANMA ALANLARI"+'.xlsx');
   }
+  
+  // exportTable(data: any, alanadi: string) {
+  //   const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(data);
+  //   const wb: XLSX.WorkBook = XLSX.utils.book_new();
+  //   console.log("WS",ws);
+  //   XLSX.utils.book_append_sheet(wb, ws, 'All Data Export');
+
+  //   XLSX.writeFile(wb, alanadi + '.xlsx');
+  // }
 
   ngOnDestroy() {
     this.unsubscribe.forEach((sb) => sb.unsubscribe());
