@@ -51,7 +51,7 @@ export class BorusanDashboardComponent implements OnInit {
     this.getTerminal();
     setInterval(() => {
       this.getTerminal();
-      }, 10000);
+      }, 15000);
   }
 
 

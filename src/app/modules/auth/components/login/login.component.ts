@@ -14,8 +14,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class LoginComponent implements OnInit, OnDestroy {
   // KeenThemes mock, change it to:
   defaultAuth: any = {
-    email: 'admin@demo.com',
-    password: 'demo',
+    email: 'asistan1',
+    password: '!Borusan!',
   };
   loginForm: FormGroup;
   hasError: boolean;
@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.defaultAuth.email,
         Validators.compose([
           Validators.required,
-          Validators.email,
+          // Validators.email,
           Validators.minLength(3),
           Validators.maxLength(320), // https://stackoverflow.com/questions/386294/what-is-the-maximum-length-of-a-valid-email-address
         ]),

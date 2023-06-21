@@ -4,7 +4,7 @@ export class UsersTable {
       id: 1,
       username: 'asistan1',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan1',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -59,7 +59,7 @@ export class UsersTable {
       id: 2,
       username: 'asistan2',
       password: '!Borusan!',
-      email: 'user@demo.com',
+      email: 'asistan2',
       authToken: 'auth-token-6829bba69dd3421d8762-991e9e806dbf',
       refreshToken: 'auth-token-f8e4c61a318e4d618b6c199ef96b9e55',
       roles: [2], // Manager
@@ -113,7 +113,7 @@ export class UsersTable {
       id: 3,
       username: 'asistan3',
       password: '!Borusan!',
-      email: 'guest@demo.com',
+      email: 'asistan3',
       authToken: 'auth-token-d2dff7b82f784de584b60964abbe45b9',
       refreshToken: 'auth-token-c999ccfe74aa40d0aa1a64c5e620c1a5',
       roles: [3], // Guest
@@ -167,7 +167,7 @@ export class UsersTable {
       id: 4,
       username: 'asistan4',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan4',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -222,7 +222,7 @@ export class UsersTable {
       id: 5,
       username: 'asistan5',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan5',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -277,7 +277,7 @@ export class UsersTable {
       id: 1,
       username: 'asistan6',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan6',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -332,7 +332,7 @@ export class UsersTable {
       id: 1,
       username: 'asistan7',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan7',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -387,7 +387,7 @@ export class UsersTable {
       id: 1,
       username: 'asistan8',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan8',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -442,7 +442,7 @@ export class UsersTable {
       id: 1,
       username: 'asistan9',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan9',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -497,7 +497,7 @@ export class UsersTable {
       id: 1,
       username: 'asistan10',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan10',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -552,7 +552,7 @@ export class UsersTable {
       id: 1,
       username: 'asistan11',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan11',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -607,7 +607,7 @@ export class UsersTable {
       id: 1,
       username: 'asistan12',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan12',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -662,7 +662,7 @@ export class UsersTable {
       id: 1,
       username: 'asistan13',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan13',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -717,7 +717,7 @@ export class UsersTable {
       id: 1,
       username: 'asistan14',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan14',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -772,7 +772,7 @@ export class UsersTable {
       id: 1,
       username: 'asistan15',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan15',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -827,7 +827,7 @@ export class UsersTable {
       id: 1,
       username: 'asistan16',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan16',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -882,7 +882,7 @@ export class UsersTable {
       id: 1,
       username: 'asistan17',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan17',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -937,7 +937,7 @@ export class UsersTable {
       id: 1,
       username: 'asistan18',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan18',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -992,7 +992,7 @@ export class UsersTable {
       id: 1,
       username: 'asistan19',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan19',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -1047,7 +1047,7 @@ export class UsersTable {
       id: 1,
       username: 'asistan20',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan20',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -1102,7 +1102,7 @@ export class UsersTable {
       id: 1,
       username: 'asistan21',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan21',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -1157,7 +1157,7 @@ export class UsersTable {
       id: 1,
       username: 'asistan22',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan22',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -1212,7 +1212,7 @@ export class UsersTable {
       id: 1,
       username: 'asistan23',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan23',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -1267,7 +1267,7 @@ export class UsersTable {
       id: 1,
       username: 'asistan24',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan24',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -1322,7 +1322,7 @@ export class UsersTable {
       id: 1,
       username: 'asistan25',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan25',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -1377,7 +1377,7 @@ export class UsersTable {
       id: 1,
       username: 'asistan26',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan26',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -1432,7 +1432,7 @@ export class UsersTable {
       id: 1,
       username: 'asistan27',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan27',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -1487,7 +1487,7 @@ export class UsersTable {
       id: 1,
       username: 'asistan28',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan28',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -1542,7 +1542,7 @@ export class UsersTable {
       id: 1,
       username: 'asistan29',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan29',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -1597,7 +1597,7 @@ export class UsersTable {
       id: 1,
       username: 'asistan30',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan30',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -1652,7 +1652,7 @@ export class UsersTable {
       id: 1,
       username: 'asistan31',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan31',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -1707,7 +1707,7 @@ export class UsersTable {
       id: 1,
       username: 'asistan32',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan32',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -1762,7 +1762,7 @@ export class UsersTable {
       id: 1,
       username: 'asistan33',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan33',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -1817,7 +1817,7 @@ export class UsersTable {
       id: 1,
       username: 'asistan34',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan34',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator
@@ -1872,7 +1872,7 @@ export class UsersTable {
       id: 1,
       username: 'asistan35',
       password: '!Borusan!',
-      email: 'admin@demo.com',
+      email: 'asistan35',
       authToken: 'auth-token-8f3ae836da744329a6f93bf20594b5cc',
       refreshToken: 'auth-token-f8c137a2c98743f48b643e71161d90aa',
       roles: [1], // Administrator

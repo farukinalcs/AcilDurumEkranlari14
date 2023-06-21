@@ -25,9 +25,13 @@
             <div (click)="notLocation()" class="dashboard-items" style="background-color:#009ef7;" type="button">
                 <span>Lokasyon Dışı</span>
             </div>
+            <div class="dashboard-items" type="button">
+              <img class="mx-auto w-150px w-xl-100px" src="./assets/media/misc/borusan.png" alt="" />
+            </div>
             <div (click)="showDevices()"  class="dashboard-items" type="button" data-toggle="modal" data-target="#ShowDevices">
               <span style="color: red;">Off:&nbsp;{{offDevices}}</span><span>Devices</span><span style="color: green;">On:&nbsp;{{onDevices}}</span> 
             </div>
+     
             <app-notsafepeople></app-notsafepeople>
             <!-- <app-notsafepeople (myevent)="IsSafe($event)"></app-notsafepeople> -->
         </div>
