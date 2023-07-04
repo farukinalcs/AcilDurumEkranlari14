@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -10,6 +10,7 @@ import { Result } from '../_models/result';
 import { listen} from '../Ngrx-Store/location/locations.selector';
 
 import * as XLSX from 'xlsx';
+
 declare var $: any;
 
 
@@ -46,7 +47,9 @@ export class NameListComponent implements OnInit {
   dataList:Result[] = [];
 
 
-  statikocu:string="40.76841734815389";
+  statikocu:string="41.02926";
+
+  data="https://www.meyerangel.com/testmap.html?x=41.029263&amp;y=28.987094";
 
   locationSelect$ = this.store.select(listen);
 
@@ -71,6 +74,8 @@ export class NameListComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+
+  @ViewChild('TABLE',{ read: ElementRef }) table: ElementRef;
 
   constructor(
     private borusan:BorusanService, 
@@ -110,11 +115,22 @@ export class NameListComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.dataList)
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      // this.dataSource.table = this.table;
       this.ref.detectChanges();
       if(status == 1)
       {
         this.borusan.safePeopleCount = this.dataList.length;
-      }else if(status == 2){
+      }
+      else if(status == 2)
+      {
+        this.borusan.inLocationPeopleCount = this.dataList.length;
+      }
+      else if(status == 3)
+      {
+        this.borusan.outLocationPeopleCount = this.dataList.length;
+      }
+      else if(status == 4)
+      {
         this.borusan.notSafePeopleCount = this.dataList.length;
       }
     }))
@@ -126,13 +142,24 @@ export class NameListComponent implements OnInit {
   }
 
   getKoordinat(row:Result)
-  {  console.log("element",row)
+  {
+    console.log("ROW",row)
     $('#koordinat').modal('show');
+    const x = row?.koordinat.split(",",0)
+    const y = row?.koordinat.split(",",1)
+    // let element = document.getElementById("mapx");
+    //  element.setAttribute("data", "http://www.google.com");
+    var url:string= "https://www.meyerangel.com/testmap.html?x="+`${x}`+"&amp;y="+`${y}`
+    var url2:string="https://www.meyerangel.com/testmap.html?x=41.029263&amp;y=28.987094"
+    // document.getElementById("mapx")?.setAttribute("data", "https://www.meyerangel.com/testmap.html?x=41.029263&amp;y=28.987094")
+    var element = document.getElementById("mapx");
+    element?.setAttribute("data",url2)
+    // document.getElementById("mapx")?.setAttribute("src", url2)
   }
 
   exportExcel():void{
-    let element = document.getElementById('excel-table')
-    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
+    // let element = document.getElementById('excel-table')
+    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.dataList)
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'All Data Export');
     XLSX.writeFile(wb, "BORUSAN ACİL DURUM TOPLANMA ALANLARI"+'.xlsx');

@@ -1,19 +1,26 @@
 
-.controlpanel{
-    height: 15vh;    
-}
-.content{
-    display: flex;
-    height: 83vh;
+// @media screen and (min-width:1200px){
     
+.controlpanel{
+min-height: fit-content;
+
 }
-.table{
-    height: 83vh;
-    width: 80vw;
+.top-buttons{
+    display: flex;
+    justify-content: space-around;
 }
+// .content{
+//     display: flex;
+//     height: 83vh;
+    
+// }
+// .table{
+//     height: 83vh;
+//     width: 80vw;
+// }
 .nameList{
-    overflow:scroll;
-    height: 83vh;
+    overflow:auto;
+   
 
 }
 .mat-row:hover {
@@ -68,35 +75,6 @@
     background: transparent;
 }
 
-// .reloadDate{
-//     width: 8vw;
-//     min-width: 8vw;
-//     min-height: 5vh;
-//     background-color: rgb(223, 224, 220);
-//     color: black;
-//     text-align: center;
-//     font-weight: bold;
-//     box-shadow: 5px 5px 5px #939393;
-//     border-radius: 5px;
-//     display: flex;
-//     justify-content: space-around;
-//     align-items: center;
-// }
-// .showDevices{
-//     width: 8vw;
-//     min-width: 8vw;
-//     min-height: 5vh;
-//     background-color:#009ef7;
-//     font-weight: bold;
-//     color: black;
-//     text-align: center;
-//     font-weight: bold;
-//     box-shadow: 5px 5px 5px #939393;
-//     border-radius: 5px;
-//     display: flex;
-//     justify-content: space-around;
-//     align-items: center;
-// }
 .dashboard-items{
     width: 12vw;
     min-width: 12vw;
@@ -117,15 +95,38 @@
     box-shadow: 3px 2px 22px 1px #009ef7;
 }
 
-// .content{
-//     display: flex;
-//     height: 80vh;
+.borusan_logo{
+    background-repeat: round;
+    object-fit: contain;
+    height: 8vh;
+    width: 8vw; 
+    margin-left: 2vw;
+}
+
 // }
-// .table{
-//     height: 80vh;
-//     width: 70vw;
-// }
-// .pie{
-//     height: 80vh;
-//     width: 30vw;
-// }
+
+@media screen and (max-width:860px) {
+    .top-buttons{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .dashboard-items{
+        width: 12vw;
+        min-width: 12vw;
+        min-height: 5vh;
+        font-weight: bold;
+        color: black;
+        text-align: center;
+        font-weight: bold;
+        box-shadow: 5px 5px 5px #939393;
+        border-radius: 5px;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 1vh;
+        margin: 1vh;
+    }
+    .borusan_logo{
+        display: none;
+    }
+}

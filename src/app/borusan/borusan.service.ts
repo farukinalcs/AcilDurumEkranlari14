@@ -24,6 +24,8 @@ export class BorusanService {
 
   safePeopleCount:number;
   notSafePeopleCount:number;
+  inLocationPeopleCount:number;
+  outLocationPeopleCount:number;
 
   constructor(private http:HttpClient) { }
 

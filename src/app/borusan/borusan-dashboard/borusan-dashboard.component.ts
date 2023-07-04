@@ -2,9 +2,6 @@ import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/modules/auth';
 import { BorusanService } from '../borusan.service';
 import { Subscription } from 'rxjs';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
 import { Store } from '@ngrx/store';
 import { changeLocation } from '../Ngrx-Store/location/locations.action';
 declare var $: any;
@@ -34,10 +31,6 @@ export class BorusanDashboardComponent implements OnInit {
   deviceList:any[] = [];
 
   duzenlemeTarih:string;
-
-  dataSource!: MatTableDataSource<any>;
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
  
   private unsubscribe: Subscription[] = [];
 
@@ -72,6 +65,11 @@ export class BorusanDashboardComponent implements OnInit {
     {this.borusan.locationSubject.next(5)
       this.ref.detectChanges();
     }else this.borusan.locationSubject.next(6)
+    this.borusan.inLocationPeopleCount = 0;
+    this.borusan.outLocationPeopleCount = 0;
+    this.borusan.safePeopleCount = 0;
+    this.borusan.notSafePeopleCount = 0;
+    
   }
 
  
@@ -96,12 +94,19 @@ export class BorusanDashboardComponent implements OnInit {
   showDevices(){
     $('#ShowDevices').modal('show');
   }
-  notLocation(){
+
+  safe(){
+    this.borusan.statusSubject.next(1)
+  }
+  inLocation(){
+    this.borusan.statusSubject.next(2)
+  }
+  outLocation(){
     this.borusan.statusSubject.next(3)
   }
-
-
- 
+  notSafe(){
+    this.borusan.statusSubject.next(4)
+  }
 
   ngOnDestroy() {
     this.unsubscribe.forEach((sb) => sb.unsubscribe());

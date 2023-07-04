@@ -16,5 +16,7 @@ export interface Result{
     telefon:string;
     status:number;
     terminalId:number;
-    terminalAd:string;        
+    terminalAd:string;
+    koordinat:string;
+    vip:string      
 }

@@ -7,84 +7,184 @@
    <mat-divider></mat-divider>
    
    <mat-dialog-content cdkDrag cdkDragRootElement="cdk-overlay-pane" cdkDragHandle>
-      <div class="mat-elevation-z8">
-        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" style="width: 100%;" id="excel-table">
+      <div class="example-container mat-elevation-z8" #TABLE>
+        <mat-table [dataSource]="dataSource" matSort id="excel-table">
+          <!-- 
           <ng-container matColumnDef="sicilNo">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Sicil No</th>
             <td (click)="exportExcel()" mat-cell *matCellDef="let element">{{element.sicilNo}}</td>
+          </ng-container> -->
+          <ng-container matColumnDef="sicilNo">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Sicil No</mat-header-cell>
+            <mat-cell (click)="exportExcel()" data-label="sicilNo" *matCellDef="let element">{{element.sicilNo}}</mat-cell>
           </ng-container>
-          <ng-container matColumnDef="adSoyad">
+
+          <!-- <ng-container matColumnDef="adSoyad">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Ad Soyad</th>
             <td (click)="exportExcel()" mat-cell *matCellDef="let element"><b>{{element.adSoyad}}</b></td>
+          </ng-container> -->
+
+          <ng-container matColumnDef="adSoyad">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Ad Soyad</mat-header-cell>
+            <mat-cell (click)="exportExcel()" data-label="adSoyad" *matCellDef="let element"><b>{{element.adSoyad}}</b></mat-cell>
           </ng-container>
-          <ng-container matColumnDef="departman">
+
+          <!-- <ng-container matColumnDef="departman">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Departman</th>
             <td (click)="exportExcel()" mat-cell *matCellDef="let element">{{element.departman}}</td>
+          </ng-container> -->
+
+          <ng-container matColumnDef="departman">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Departman</mat-header-cell>
+            <mat-cell (click)="exportExcel()" data-label="departman" *matCellDef="let element">{{element.departman}}</mat-cell>
           </ng-container>
-          <ng-container matColumnDef="firma">
+
+          <!-- <ng-container matColumnDef="firma">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Firma</th>
             <td (click)="exportExcel()" mat-cell *matCellDef="let element">
               {{element.firma}}
               </td>
+          </ng-container> -->
+
+          <ng-container matColumnDef="firma">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Firma</mat-header-cell>
+            <mat-cell (click)="exportExcel()" data-label="firma" *matCellDef="let element">
+              {{element.firma}}
+              </mat-cell>
           </ng-container>
+          <!-- 
           <ng-container matColumnDef="lokasyon">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Lokasyon</th>
             <td (click)="exportExcel()" mat-cell *matCellDef="let element"><b>{{element.lokasyon}}</b></td>
-            <!-- <td mat-cell *matCellDef="let element">{{locationSelect$ | async}}</td> -->
+          </ng-container> -->
+
+          <ng-container matColumnDef="lokasyon">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Lokasyon</mat-header-cell>
+            <mat-cell (click)="exportExcel()" data-label="lokasyon" *matCellDef="let element"><b>{{element.lokasyon}}</b></mat-cell>
           </ng-container>
-          <ng-container matColumnDef="hareketZamani">
+
+          <!-- <ng-container matColumnDef="hareketZamani">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Giris Saati</th>
-            <td (click)="exportExcel()" mat-cell *matCellDef="let element">{{element.hareketZamani | date : 'hh:mm' }}</td>
+            <td (click)="exportExcel()" mat-cell *matCellDef="let element">{{element.hareketZamani | date : 'dd.MM.yyyy - HH:mm' }}</td>
+          </ng-container> -->
+
+          
+          <ng-container matColumnDef="hareketZamani">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Giris Saati</mat-header-cell>
+            <mat-cell (click)="exportExcel()" data-label="hareketZamani" *matCellDef="let element">{{element.hareketZamani | date : 'dd.MM.yyyy - HH:mm' }}</mat-cell>
           </ng-container>
-          <ng-container matColumnDef="terminalAd">
+
+          <!-- <ng-container matColumnDef="terminalAd">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Giris Terminali</th>
             <td (click)="exportExcel()" mat-cell *matCellDef="let element">{{element.terminalAd}}</td>
+          </ng-container> -->
+
+          <ng-container matColumnDef="terminalAd">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Giris Terminali</mat-header-cell>
+            <mat-cell (click)="exportExcel()" data-label="terminalAd" *matCellDef="let element">{{element.terminalAd}}</mat-cell>
           </ng-container>
-          <ng-container matColumnDef="telefon">
+
+          <!-- <ng-container matColumnDef="telefon">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Telefon</th>
             <td (click)="exportExcel()" mat-cell *matCellDef="let element">{{element.telefon}}</td>
+          </ng-container> -->
+
+          <ng-container matColumnDef="telefon">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Telefon</mat-header-cell>
+            <mat-cell (click)="exportExcel()" data-label="telefon" *matCellDef="let element">{{element.telefon}}</mat-cell>
           </ng-container>
-          <ng-container matColumnDef="kanGrubu">
+
+          <!-- <ng-container matColumnDef="kanGrubu">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Kan Grubu</th>
             <td (click)="exportExcel()" mat-cell *matCellDef="let element">{{element.kanGrubu}}</td>
+          </ng-container> -->
+          <ng-container matColumnDef="kanGrubu">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Kan Grubu</mat-header-cell>
+            <mat-cell (click)="exportExcel()"  data-label="kanGrubu" *matCellDef="let element">{{element.kanGrubu}}</mat-cell>
           </ng-container>
-          <ng-container matColumnDef="acilDurumKisi">
+
+          <!-- <ng-container matColumnDef="acilDurumKisi">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Acil Durum Kisi</th>
             <td (click)="exportExcel()" mat-cell *matCellDef="let element">{{element.acilDurumKisi}}</td>
+          </ng-container> -->
+
+          <ng-container matColumnDef="acilDurumKisi">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Acil Durum Kisi</mat-header-cell>
+            <mat-cell (click)="exportExcel()"  data-label="acilDurumKisi" *matCellDef="let element">{{element.acilDurumKisi}}</mat-cell>
           </ng-container>
+
+          <!-- 
           <ng-container matColumnDef="acilDurumKisiTel">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Acil Durum Kisi Tel</th>
             <td (click)="exportExcel()" mat-cell *matCellDef="let element">{{element.acilDurumKisiTel}}</td>
+          </ng-container> -->
+
+          
+          <ng-container matColumnDef="acilDurumKisiTel">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Acil Durum Kisi Tel</mat-header-cell>
+            <mat-cell (click)="exportExcel()" data-label="acilDurumKisiTel" *matCellDef="let element">{{element.acilDurumKisiTel}}</mat-cell>
           </ng-container>
-          <ng-container matColumnDef="status">
+      
+          
+          <!-- <ng-container matColumnDef="status">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Statu</th>
             <td (click)="exportExcel()" mat-cell *matCellDef="let element">
               <span *ngIf="element.status == 1" style="color:green"><b>Güvende</b></span>
-              <span *ngIf="element.status == 2" style="color:red"><b>Güvende Değil</b></span>
-              <span *ngIf="element.status == 3" style="color:blue"><b>Lokasyon Dışı</b></span>
+              <span *ngIf="element.status == 2" style="color:orange"><b>İçeride</b></span>
+              <span *ngIf="element.status == 3" style="color:blue"><b>Dışarıda</b></span>
+              <span *ngIf="element.status == 4" style="color:red"><b>Güvende Değil</b></span>
             </td>
-          </ng-container>
-          <!-- <ng-container matColumnDef="duzenleyen">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Düzenleyen</th>
-            <td mat-cell *matCellDef="let element">{{element.duzenleyen}}</td>
           </ng-container> -->
-          <ng-container matColumnDef="koordinat">
+
+          <ng-container matColumnDef="status">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Statu</mat-header-cell>
+            <mat-cell (click)="exportExcel()" data-label="status" *matCellDef="let element">
+              <span *ngIf="element.status == 1" style="color:green"><b>Güvende</b></span>
+              <span *ngIf="element.status == 2" style="color:orange"><b>İçeride</b></span>
+              <span *ngIf="element.status == 3" style="color:blue"><b>Dışarıda</b></span>
+              <span *ngIf="element.status == 4" style="color:red"><b>Güvende Değil</b></span>
+            </mat-cell>
+          </ng-container>
+
+  
+          <!-- <ng-container matColumnDef="koordinat">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Koordinat</th>
-            <!-- <td mat-cell *matCellDef="let element">{{element.koordinat.split(",",1)}}</td> -->
+          
             <td mat-cell *matCellDef="let element">
-              <button *ngIf="element.status == 2" (click)="getKoordinat(element)" type="button" style=" font-weight:bold" class="btn btn-danger btn-sm" 
+              <button *ngIf="element.status == 4" (click)="getKoordinat(element)" type="button" style=" font-weight:bold" class="btn btn-danger btn-sm" 
               data-toggle="modal" data-target="#koordinat">K</button>
             </td>
+          </ng-container> -->
+
+          <ng-container matColumnDef="koordinat">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Koordinat</mat-header-cell>
+          
+            <mat-cell *matCellDef="let element" data-label="koordinat">
+              <button *ngIf="element.status == 4" (click)="getKoordinat(element)" type="button" style="font-weight:bold" class="btn btn-danger btn-sm" 
+              data-toggle="modal" data-target="#koordinat">K</button>
+            </mat-cell>
           </ng-container>
-          <ng-container matColumnDef="vip">
+
+
+          <!-- <ng-container matColumnDef="vip">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Vip</th>
             <td mat-cell *matCellDef="let element">{{element.vip}}</td>
+          </ng-container> -->
+
+          <ng-container matColumnDef="vip">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Vip</mat-header-cell>
+            <mat-cell *matCellDef="let element" data-label="vip">{{element.vip}}</mat-cell>
           </ng-container>
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-        <!-- <tr (click)="exportExcel()" mat-row><button type="button" class="btn btn-danger btn-sm">ÇIKTI AL</button></tr> -->
-        <mat-paginator   [pageSize]="12"  showFirstLastButtons aria-label="Select page">
+
+          <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
+
+          
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+
+        <mat-paginator  [pageSize]="11"  showFirstLastButtons aria-label="Select page">
         </mat-paginator>
       </div>
     </mat-dialog-content>
@@ -97,13 +197,10 @@
             <h1 class="modal-title fs-5" id="exampleModalLabel">Yardıma İhtiyacım Var</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body" width="100%" height="100%">
-            <object id="mapx" data="https://www.meyerangel.com/testmap.html?x=41.029263&amp;y=28.987094" width="100%" height="100%" type="text/html"></object>
-            <!-- <object id="mapx" data="https://www.meyerangel.com/testmap.html?x={{statikocu}}&amp;y=29.756540386006236" width="100%" height="60%" type="text/html"></object> -->
+          <div class="modal-body-xl">
+            <object type="text/html" id="mapx" width="100%" height="100%"></object>
+            <!-- <iframe id="mapx" width="100%" height="100%" src="https://www.meyerangel.com/testmap.html?x=41.029263&amp;y=28.987094" frameborder="0"></iframe> -->
           </div>
-          <!-- <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div> -->
         </div>
       </div>
     </div>

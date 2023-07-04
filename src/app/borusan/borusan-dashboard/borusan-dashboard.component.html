@@ -1,39 +1,54 @@
 <div class="container-fluid">
     <div class="controlpanel">
-        <div class="form-group p-3">
-            <label for="exampleSelect1">Select Location<span>/Lokasyon Seçiniz</span><span class="text-danger">*</span></label>
-            <select [(ngModel)]="_location" (change)="changeLokasyon(_location)" class="form-control form-select" id="location">
-                <option *ngFor="let item of locations">{{item}}</option>
-            </select>
+        <div class="row">
 
-            <!-- <label for="exampleSelect1">Select Location<span>/Lokasyon Seçiniz</span><span class="text-danger">*</span></label>
-            <select [(ngModel)]="_location" (change)="changeLokasyon(_location)" class="form-control form-select" id="location">
-                <option value="1">Hepsi</option>
-                <option value="2">Gemlik / Bursa</option>
-                <option value="3">Bursa</option>
-                <option value="4">Halkalı / İstanbul</option>
-                <option value="5">Merkez / İstanbul</option>
-                <option value="6">Yok</option>
-            </select> -->
+          <div class="col-md-10">
+
+            <div class="form-group">
+              <label>Select Location<span>/Lokasyon Seçiniz</span><span class="text-danger">*</span></label>
+              <select [(ngModel)]="_location" (change)="changeLokasyon(_location)" class="form-select" id="location">
+                  <option *ngFor="let item of locations">{{item}}</option>
+              </select>
+             
+            </div>
+          </div>
+
+          <div class="col-md-2">
+            <img class="borusan_logo" src="./assets/media/misc/borusan.png" alt="Responsive image" />
+          </div>
+
         </div>
+    
         
-        <div class="form-group" style="display:flex;justify-content:space-around; height: 5vh;">
-            <app-safepeople></app-safepeople>
+        <div class="top-buttons">
+
+            <div (click)="safe()"  class="dashboard-items" type="button" style="background-color:greenyellow;">
+              <span>Güvende Olan Personel Sayısı</span>
+              <span *ngIf="this.borusan.safePeopleCount != 0">{{this.borusan.safePeopleCount}}</span>
+            </div>
+         
             <div class="dashboard-items" type="button">
               <span>{{this.borusan.duzenlemeTarih | date : 'dd-MM-yyyy  hh:mm:ss'}}</span>
             </div>
-            <div (click)="notLocation()" class="dashboard-items" style="background-color:#009ef7;" type="button">
+
+            <div (click)="inLocation()" class="dashboard-items" style="background-color:orange;" type="button">
+              <span>İçeride</span>
+              <span *ngIf="this.borusan.inLocationPeopleCount != 0">{{this.borusan.inLocationPeopleCount}}</span>
+            </div>
+
+            <div (click)="outLocation()" class="dashboard-items" style="background-color:#009ef7;" type="button">
                 <span>Lokasyon Dışı</span>
+                <span *ngIf="this.borusan.outLocationPeopleCount != 0">{{this.borusan.outLocationPeopleCount}}</span>
             </div>
-            <div class="dashboard-items" type="button">
-              <img class="mx-auto w-150px w-xl-100px" src="./assets/media/misc/borusan.png" alt="" />
-            </div>
+
             <div (click)="showDevices()"  class="dashboard-items" type="button" data-toggle="modal" data-target="#ShowDevices">
               <span style="color: red;">Off:&nbsp;{{offDevices}}</span><span>Devices</span><span style="color: green;">On:&nbsp;{{onDevices}}</span> 
             </div>
-     
-            <app-notsafepeople></app-notsafepeople>
-            <!-- <app-notsafepeople (myevent)="IsSafe($event)"></app-notsafepeople> -->
+            <div (click)="notSafe()"  class="dashboard-items" type="button" style="background-color: #ff2f2f;">
+              <span>Güvende Olmayan Personel Sayısı</span>
+              <span *ngIf="this.borusan.notSafePeopleCount != 0">{{this.borusan.notSafePeopleCount}}</span>
+            </div>
+      
         </div>
       
     </div>

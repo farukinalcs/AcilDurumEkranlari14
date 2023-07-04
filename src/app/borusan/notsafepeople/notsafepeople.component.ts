@@ -20,8 +20,8 @@ export class NotsafepeopleComponent implements OnInit {
   }
   
   notSafe(){
-    this.store.dispatch({type:"[State] getState"})
-    this.myevent.emit("not")
-    this.borusan.statusSubject.next(2)
+    // this.store.dispatch({type:"[State] getState"})
+    // this.myevent.emit("not")
+    this.borusan.statusSubject.next(4)
   }
 }

@@ -20,8 +20,8 @@ export class SafepeopleComponent implements OnInit {
   }
 
   safe(){
-      this.store.dispatch({type:"[State] getState"})
-      this.myevent.emit("safe")
+      // this.store.dispatch({type:"[State] getState"})
+      // this.myevent.emit("safe")
       this.borusan.statusSubject.next(1)
   }
 
