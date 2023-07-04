@@ -40,16 +40,10 @@ export class NameListComponent implements OnInit {
     "vip"
   ];
 
-  merkez:Result[]=[];
-  halkali:Result[]=[];
-  gemlik:Result[]=[];
-  bursa:Result[]=[];
   dataList:Result[] = [];
 
 
   statikocu:string="41.02926";
-
-  data="https://www.meyerangel.com/testmap.html?x=41.029263&amp;y=28.987094";
 
   locationSelect$ = this.store.select(listen);
 
@@ -145,35 +139,21 @@ export class NameListComponent implements OnInit {
   {
     console.log("ROW",row)
     $('#koordinat').modal('show');
-    const x = row?.koordinat.split(",",0)
-    const y = row?.koordinat.split(",",1)
-    // let element = document.getElementById("mapx");
-    //  element.setAttribute("data", "http://www.google.com");
-    var url:string= "https://www.meyerangel.com/testmap.html?x="+`${x}`+"&amp;y="+`${y}`
-    var url2:string="https://www.meyerangel.com/testmap.html?x=41.029263&amp;y=28.987094"
-    // document.getElementById("mapx")?.setAttribute("data", "https://www.meyerangel.com/testmap.html?x=41.029263&amp;y=28.987094")
-    var element = document.getElementById("mapx");
-    element?.setAttribute("data",url2)
-    // document.getElementById("mapx")?.setAttribute("src", url2)
+    const x = row.koordinat.split(",",0)
+    const y = row.koordinat.split(",",1)
+
+    const url:string= "https://www.meyerangel.com/testmap.html?x="+`${x}`+"&amp;y="+`${y}`
+    const url2:string="https://www.meyerangel.com/testmap.html?x=41.029263&amp;y=28.987094"
+    document.getElementById("mapx")?.setAttribute("data", url)
   }
 
   exportExcel():void{
-    // let element = document.getElementById('excel-table')
     const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.dataList)
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'All Data Export');
     XLSX.writeFile(wb, "BORUSAN ACİL DURUM TOPLANMA ALANLARI"+'.xlsx');
   }
   
-  // exportTable(data: any, alanadi: string) {
-  //   const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(data);
-  //   const wb: XLSX.WorkBook = XLSX.utils.book_new();
-  //   console.log("WS",ws);
-  //   XLSX.utils.book_append_sheet(wb, ws, 'All Data Export');
-
-  //   XLSX.writeFile(wb, alanadi + '.xlsx');
-  // }
-
   ngOnDestroy() {
     this.unsubscribe.forEach((sb) => sb.unsubscribe());
   }

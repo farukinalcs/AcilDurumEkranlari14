@@ -7,8 +7,8 @@
    <mat-divider></mat-divider>
    
    <mat-dialog-content cdkDrag cdkDragRootElement="cdk-overlay-pane" cdkDragHandle>
-      <div class="example-container mat-elevation-z8" #TABLE>
-        <mat-table [dataSource]="dataSource" matSort id="excel-table">
+      <div class="example-container mat-elevation-z8">
+        <mat-table [dataSource]="dataSource" matSort>
           <!-- 
           <ng-container matColumnDef="sicilNo">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Sicil No</th>
@@ -198,7 +198,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body-xl">
-            <object type="text/html" id="mapx" width="100%" height="100%"></object>
+            <object type="text/html" id="mapx" data="https://www.meyerangel.com/testmap.html?x=41.029263&amp;y=28.987094" width="100%" height="100%"></object>
             <!-- <iframe id="mapx" width="100%" height="100%" src="https://www.meyerangel.com/testmap.html?x=41.029263&amp;y=28.987094" frameborder="0"></iframe> -->
           </div>
         </div>
