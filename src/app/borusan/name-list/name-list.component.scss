@@ -1,7 +1,6 @@
 .nameList{
-    overflow:scroll;
-    height: 83vh;
-
+    overflow:auto;
+    height: 75vh;
 }
 
 :root{
@@ -86,7 +85,7 @@ object{
         text-align: right;
         font-weight: bold;
         height:30px;
-        margin-bottom: 4%;
+     
       }
       
     .mat-table {
@@ -105,9 +104,9 @@ object{
     //   .mat-table .mat-cell:last-child {
     //     border-bottom: 0;
     //   }
-    .mat-table .mat-cell:first-child {
-        margin-top: 4%;
-      }
+    // .mat-table .mat-cell:first-child {
+    //     margin-top: 4%;
+    //   }
     .mat-header-row{
         display: none;
       }

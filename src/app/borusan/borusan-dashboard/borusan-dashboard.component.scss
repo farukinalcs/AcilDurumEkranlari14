@@ -2,27 +2,24 @@
 // @media screen and (min-width:1200px){
     
 .controlpanel{
-min-height: fit-content;
+    min-height: fit-content;
 
 }
+
 .top-buttons{
     display: flex;
     justify-content: space-around;
 }
-// .content{
-//     display: flex;
-//     height: 83vh;
-    
-// }
-// .table{
-//     height: 83vh;
-//     width: 80vw;
-// }
+
+.content{
+    min-height: 75vh;  
+}
+
 .nameList{
     overflow:auto;
-   
 
 }
+
 .mat-row:hover {
     background-color: rgb(158, 232, 245);
     cursor: pointer;
@@ -88,6 +85,7 @@ min-height: fit-content;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    word-wrap:break-word;
 }
 
 .dashboard-items:active{

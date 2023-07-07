@@ -49,8 +49,8 @@ export class BorusanDashboardComponent implements OnInit {
 
 
   changeLokasyon(id:string){
-    if(id == "Hepsi")
-    {this.borusan.locationSubject.next(1)
+    if(id == "Hepsi"){
+      this.borusan.locationSubject.next(1)
       this.ref.detectChanges();
     }else if(id == "Gemlik / Bursa")
     {this.borusan.locationSubject.next(2)
@@ -69,7 +69,6 @@ export class BorusanDashboardComponent implements OnInit {
     this.borusan.outLocationPeopleCount = 0;
     this.borusan.safePeopleCount = 0;
     this.borusan.notSafePeopleCount = 0;
-    
   }
 
  
